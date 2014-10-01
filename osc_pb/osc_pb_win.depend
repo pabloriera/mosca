@@ -1493,3 +1493,172 @@
 
 1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\networkingutils.h
 
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\posix\networkingutils.cpp
+	"ip/NetworkingUtils.h"
+	<netdb.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<string.h>
+	<stdio.h>
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\posix\udpsocket.cpp
+	"ip/UdpSocket.h"
+	<vector>
+	<algorithm>
+	<stdexcept>
+	<assert.h>
+	<signal.h>
+	<math.h>
+	<errno.h>
+	<string.h>
+	<pthread.h>
+	<unistd.h>
+	<stdlib.h>
+	<stdio.h>
+	<netdb.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<netinet/in.h>
+	"ip/PacketListener.h"
+	"ip/TimerListener.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\udpsocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\packetlistener.h
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\timerlistener.h
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\win32\networkingutilswin.cpp
+	"ip/NetworkingUtils.h"
+	<winsock2.h>
+	<windows.h>
+	<stdlib.h>
+	<stdio.h>
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\win32\udpsocketwin.cpp
+	"ip/UdpSocket.h"
+	<winsock2.h>
+	<windows.h>
+	<mmsystem.h>
+	<vector>
+	<algorithm>
+	<stdexcept>
+	<assert.h>
+	<signal.h>
+	"ip/NetworkingUtils.h"
+	"ip/PacketListener.h"
+	"ip/TimerListener.h"
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\oscoutboundpacketstream.cpp
+	"OscOutboundPacketStream.h"
+	<string.h>
+	<stdlib.h>
+	<assert.h>
+	<malloc.h>
+	"OscHostEndianness.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\oscoutboundpacketstream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\osctypes.h
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\oscexception.h
+	<exception>
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\oschostendianness.h
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\oscprintreceivedelements.cpp
+	"OscPrintReceivedElements.h"
+	<iostream>
+	<iomanip>
+	<ctime>
+	<cstring>
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\oscprintreceivedelements.h
+	<iosfwd>
+	"OscReceivedElements.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\oscreceivedelements.h
+	<cstddef>
+	"OscTypes.h"
+	"OscException.h"
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\oscreceivedelements.cpp
+	"OscReceivedElements.h"
+	<cassert>
+	"OscHostEndianness.h"
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\osctypes.cpp
+	"OscTypes.h"
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscbundle.cpp
+	"ofxOscBundle.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscbundle.h
+	<vector>
+	"ofxOscMessage.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscmessage.h
+	"ofxOscArg.h"
+	<vector>
+	<string>
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscarg.h
+	<string>
+	"ofMain.h"
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscmessage.cpp
+	"ofxOscMessage.h"
+	"ofLog.h"
+	<iostream>
+	<assert.h>
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscparametersync.cpp
+	"ofxOscParameterSync.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscparametersync.h
+	"ofxOscSender.h"
+	"ofxOscReceiver.h"
+	"ofParameter.h"
+	"ofParameterGroup.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscsender.h
+	<string>
+	"OscTypes.h"
+	"OscOutboundPacketStream.h"
+	"ofxOscBundle.h"
+	"ofxOscMessage.h"
+	"ofParameter.h"
+	"ofParameterGroup.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscreceiver.h
+	<deque>
+	"ofMain.h"
+	<windows.h>
+	<pthread.h>
+	"OscTypes.h"
+	"OscPacketListener.h"
+	"UdpSocket.h"
+	"ofxOscMessage.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\osc\oscpacketlistener.h
+	"OscReceivedElements.h"
+	"../ip/PacketListener.h"
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscreceiver.cpp
+	"ofxOscReceiver.h"
+	<pthread.h>
+	<iostream>
+	<assert.h>
+
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxoscsender.cpp
+	"ofxOscSender.h"
+	"ofUtils.h"
+	"ofParameterGroup.h"
+	"UdpSocket.h"
+	<assert.h>
+
