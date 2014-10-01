@@ -1484,3 +1484,12 @@
 
 1404327096 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\apps\mosca\osc_pb\icon.rc
 
+1404327074 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\ipendpointname.cpp
+	"IpEndpointName.h"
+	<cstdio>
+	"NetworkingUtils.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\ipendpointname.h
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\networkingutils.h
+
