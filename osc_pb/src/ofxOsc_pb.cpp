@@ -20,9 +20,12 @@ void OSC_pb::call_ofMap(const string& keyString, float valor)
 
 
 
-void OSC_pb::setup(){
+void OSC_pb::setup(string ip, int port ){
 
-conectar
+    oscsender.setup(ip,port);
+    oscreceiver.setup(port);
+
+    ofAddListener(ofEvents().update,this, &OSC_pb::update);
 
 }
 
