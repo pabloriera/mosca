@@ -15,32 +15,41 @@
         private:
 
         class paquete
+        {
+            public:
+            paquete(float* _x, float _minX, float _maxX, float _minY, float _maxY)
             {
-                public:
-                paquete(float _x, float _minX, float _maxX, float _minY, float _maxY)
-                {
-                    x = _x;
-                    minX = _minX;
-                    maxX = _maxX;
-                    minY = _minY;
-                    maxY = _maxY;
-                }
+                x = _x;
+                minX = _minX;
+                maxX = _maxX;
+                minY = _minY;
+                maxY = _maxY;
+            }
 
-                float* x;
-                float minX, maxX, minY, maxY;
-            };
+            float* x;
+            float minX, maxX, minY, maxY;
+        };
 
         typedef map<string, paquete> map_receive;
 
         map_receive m;
 
-        ofxOSCreceiver oscreceiver;
-        ofxOSCsender oscreceiver;
+        ofxOscReceiver oscreceiver;
+        ofxOscSender oscsender;
 
         public:
 
             OSC_pb(){};
 
-    }
+            void OSCmap_receive(string label, float* x, float minX, float maxX, float minY, float maxY);
+
+            void call_ofMap(const string& keyString, float valor);
+
+            void setup(string ip, int port);
+
+            void update();
+
+
+    };
 
 #endif
