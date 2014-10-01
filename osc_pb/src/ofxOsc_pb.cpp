@@ -13,9 +13,11 @@ void OSC_pb::call_ofMap(const string& keyString, float valor)
 	map_receive::const_iterator aux = m.find(keyString);
 	if (aux != m.end())
 	{
-	   //paquete p = aux.second;
+        //VER EL TEMA DE LAS COMPATIBILIDADES ENTRE AUX.SECOND Y M.FIND
 
-	   *(p.x) = ofMap(valor,p.minX,p.maxX,p.minY,p.maxY);
+        paquete p = aux.second;
+
+        *(p.x) = ofMap(valor,p.minX,p.maxX,p.minY,p.maxY);
     }
 }
 
