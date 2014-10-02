@@ -3,6 +3,11 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
+p.x = 100;
+p.y = 200;
+pb.setup("127.0.0.1",12346,12345);
+pb.OSCmap_receive("/pos/x",&(p.x),0,100,0,ofGetWidth());
+pb.OSCmap_receive("/pos/y",&(p.y),0,100,0,ofGetHeight());
 }
 
 //--------------------------------------------------------------
@@ -12,6 +17,8 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+
+    ofCircle(p.x,p.y,10);
 
 }
 
@@ -56,6 +63,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
+void ofApp::dragEvent(ofDragInfo dragInfo){
 
 }

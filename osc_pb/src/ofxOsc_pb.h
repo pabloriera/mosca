@@ -37,15 +37,17 @@
         ofxOscReceiver oscreceiver;
         ofxOscSender oscsender;
 
+        void call_ofMap(const string& keyString, float valor);
+
         public:
 
             OSC_pb(){};
 
             void OSCmap_receive(string label, float* x, float minX, float maxX, float minY, float maxY);
 
-            void call_ofMap(const string& keyString, float valor);
 
-            void setup(string ip, int port);
+
+            void setup(string ip, int send_port,int receive_port);
 
             void update(ofEventArgs & args);
 

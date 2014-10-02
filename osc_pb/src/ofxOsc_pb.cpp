@@ -21,12 +21,13 @@ void OSC_pb::call_ofMap(const string& keyString, float valor)
 }
 
 
-void OSC_pb::setup(string ip, int port ){
+void OSC_pb::setup(string ip, int send_port,int receive_port){
 
-    oscsender.setup(ip,port);
-    oscreceiver.setup(port);
+    oscreceiver.setup(receive_port);
+    oscsender.setup(ip,send_port);
+
+
     ofAddListener(ofEvents().update, this, &OSC_pb::update);
-
     //ACOMODAR!!
 }
 
@@ -34,11 +35,18 @@ void OSC_pb::update(ofEventArgs & args){
 
 //recibe de pd
 	while (oscreceiver.hasWaitingMessages()) {
-		ofxOscMessage n;
-		oscreceiver.getNextMessage(&n);
+		ofxOscMessage m;
+		oscreceiver.getNextMessage(&m);
 
 		//Ejecuta los metodos segun el key.
-		call_ofMap(n.getAddress(),n.getArgAsFloat(0) );
+
+		if(m.getArgType(0) == OFXOSC_TYPE_INT32)
+                call_ofMap(m.getAddress(),m.getArgAsInt32(0) );
+        if(m.getArgType(0) == OFXOSC_TYPE_FLOAT)
+                call_ofMap(m.getAddress(),m.getArgAsFloat(0) );
+
+
 
 	}
+
 }
