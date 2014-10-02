@@ -14,10 +14,10 @@
     {
         private:
 
-        class paquete
+        class receive_data
         {
             public:
-            paquete(float* _x, float _minX, float _maxX, float _minY, float _maxY)
+            receive_data(float* _x, float _minX, float _maxX, float _minY, float _maxY)
             {
                 x = _x;
                 minX = _minX;
@@ -30,9 +30,24 @@
             float minX, maxX, minY, maxY;
         };
 
-        typedef map<string, paquete> map_receive;
+        class send_data
+        {
+            public:
+            send_data(float* _x)
+            {
+                x = _x;
+                x_old = *x;
+            }
 
-        map_receive m;
+            float* x;
+            float x_old;
+        };
+
+        typedef map<string, receive_data> map_receive;
+        typedef map<string, send_data> map_send;
+
+        map_receive receives_list;
+        map_send sends_list;
 
         ofxOscReceiver oscreceiver;
         ofxOscSender oscsender;
@@ -44,14 +59,18 @@
             OSC_pb(){};
 
             void OSCmap_receive(string label, float* x, float minX, float maxX, float minY, float maxY);
-
-
+            void OSCmap_send(string label, float* x, float minX, float maxX, float minY, float maxY);
 
             void setup(string ip, int send_port,int receive_port);
 
             void update(ofEventArgs & args);
+            void test(const void * sender,ofEventArgs & args);
 
+            ofEvent<ofEventArgs> newEvent;
 
+            void send(string label,string s);
+            void send(string label,float f);
+            void send(string label,int i);
     };
 
 #endif
