@@ -39,7 +39,7 @@
 
         public:
 
-            OSC_pb();
+            OSC_pb(){};
 
             void OSCmap_receive(string label, float* x, float minX, float maxX, float minY, float maxY);
 
@@ -47,7 +47,7 @@
 
             void setup(string ip, int port);
 
-            void update();
+            void update(ofEventArgs & args);
 
 
     };

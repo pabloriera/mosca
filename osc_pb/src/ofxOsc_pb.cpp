@@ -20,21 +20,17 @@ void OSC_pb::call_ofMap(const string& keyString, float valor)
     }
 }
 
-OSC_pb::OSC_pb()
-{
-    ofAddListener(ofEvents().update, this, &OSC_pb::update);
-}
-
 
 void OSC_pb::setup(string ip, int port ){
 
     oscsender.setup(ip,port);
     oscreceiver.setup(port);
+    ofAddListener(ofEvents().update, this, &OSC_pb::update);
 
     //ACOMODAR!!
 }
 
-void OSC_pb::update(){
+void OSC_pb::update(ofEventArgs & args){
 
 //recibe de pd
 	while (oscreceiver.hasWaitingMessages()) {
