@@ -30,21 +30,24 @@
             float minX, maxX, minY, maxY;
         };
 
+        template<typename U>
         class send_data
         {
             public:
-            send_data(float* _x)
-            {
-                x = _x;
-                x_old = *x;
-            }
+                send_data(U* _x)
+                {
+                    x = _x;
+                    x_old = *_x;
+                }
 
-            float* x;
-            float x_old;
+                U* x;
+                U x_old;
         };
 
         typedef map<string, receive_data> map_receive;
-        typedef map<string, send_data> map_send;
+
+        template<typename U> struct A {};
+        typedef map<string, send_data<U,A<U>> map_send;
 
         map_receive receives_list;
         map_send sends_list;
@@ -59,7 +62,8 @@
             OSC_pb(){};
 
             void OSCmap_receive(string label, float* x, float minX, float maxX, float minY, float maxY);
-            void OSCmap_send(string label, float* x, float minX, float maxX, float minY, float maxY);
+            void OSCmap_send(string label, float* x);
+            void OSCmap_send(string label, int* x);
 
             void setup(string ip, int send_port,int receive_port);
 
