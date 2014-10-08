@@ -30,24 +30,35 @@
             float minX, maxX, minY, maxY;
         };
 
-        template<typename U>
+        //template<typename U>
         class send_data
         {
             public:
-                send_data(U* _x)
+                send_data(float* _fx)
                 {
-                    x = _x;
-                    x_old = *_x;
+                    fx = _fx;
+                    fx_old = *_fx;
                 }
 
-                U* x;
-                U x_old;
+
+                send_data(int* _ix)
+                {
+                    ix = _ix;
+                    ix_old = *_ix;
+                }
+
+                float* fx;
+                float fx_old;
+                int* ix;
+                int ix_old;
+
         };
 
         typedef map<string, receive_data> map_receive;
+        typedef map<string, send_data> map_send;
 
-        template<typename U> struct A {};
-        typedef map<string, send_data<U,A<U>> map_send;
+        //template<typename U> struct A {};
+        //typedef map<string, send_data<U,A<U>> map_send;
 
         map_receive receives_list;
         map_send sends_list;

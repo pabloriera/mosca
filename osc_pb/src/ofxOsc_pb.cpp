@@ -56,7 +56,7 @@ void OSC_pb::update(ofEventArgs & args){
 
     //manda
     for(const auto& element : sends_list){
-        cout << *(element.second.x) << endl;
+        cout << *(element.second.fx) << endl;
     }
 
     //recibe
