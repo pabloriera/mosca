@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
@@ -16,6 +16,9 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="2" />
+				<ExtraCommands>
+					<Add after="mv bin/osc_pb_debug bin/osc_pb_linux_debug" />
+				</ExtraCommands>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/$(PROJECT_NAME)" prefix_auto="1" extension_auto="1" />
@@ -25,6 +28,10 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="2" />
+				<ExtraCommands>
+					<Add after="mv bin/osc_pb bin/osc_pb_linux" />
+					<Mode after="always" />
+				</ExtraCommands>
 			</Target>
 		</Build>
 		<Unit filename="../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.cpp" />
