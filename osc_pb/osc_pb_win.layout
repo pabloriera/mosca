@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="release" />
-<<<<<<< HEAD
-	<File name="src/main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="0" topLine="0" />
+	<File name="src\ofApp.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="403" topLine="0" />
+		</Cursor>
 	</File>
-	<File name="src/ofApp.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="0" topLine="0" />
-=======
+	<File name="src\ofApp.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="154" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\ofxOsc_pb.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1324" topLine="44" />
+		</Cursor>
+	</File>
+	<File name="src\ofxOsc_pb.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1033" topLine="24" />
+		</Cursor>
+	</File>
 	<File name="src\main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="343" topLine="0" />
-		</Cursor>
->>>>>>> ca49ffef874591aa6fb7aa1029ca65ea8470086e
-	</File>
-	<File name="src/ofxOsc_pb.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="0" topLine="0" />
-	</File>
-	<File name="src/ofxOsc_pb.h" open="1" top="1" tabpos="3">
-		<Cursor position="0" topLine="0" />
-	</File>
-	<File name="src\ofxOsc_pb.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="742" topLine="14" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -1476,10 +1476,11 @@
 	"ofCamera.h"
 	"ofEvents.h"
 
-1404327096 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\apps\mosca\osc_pb\src\ofapp.h
+1412494478 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\apps\mosca\osc_pb\src\ofapp.h
 	"ofMain.h"
+	"ofxOsc_pb.h"
 
-1404327096 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\apps\mosca\osc_pb\src\ofapp.cpp
+1412494478 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\apps\mosca\osc_pb\src\ofapp.cpp
 	"ofApp.h"
 
 1404327096 source:c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\apps\mosca\osc_pb\icon.rc
@@ -1661,4 +1662,16 @@
 	"ofParameterGroup.h"
 	"UdpSocket.h"
 	<assert.h>
+
+1412494478 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\apps\mosca\osc_pb\src\ofxosc_pb.h
+	<map>
+	<string>
+	"stdlib.h"
+	"ofxOsc.h"
+
+1404327074 c:\users\carlos\desktop\openframeworks\of_v0.8.3_win_cb_release\of_v0.8.3_win_cb_release\addons\ofxosc\src\ofxosc.h
+	"ofxOscArg.h"
+	"ofxOscMessage.h"
+	"ofxOscSender.h"
+	"ofxOscReceiver.h"
 
