@@ -7,12 +7,18 @@ void OSC_pb::OSCmap_receive(string label, float* x, float minX, float maxX, floa
     receives_list.insert( make_pair(label, p));
 }
 
-void OSC_pb::OSCmap_send(string label, float* x, float minX, float maxX, float minY, float maxY)
+void OSC_pb::OSCmap_send(string label, float* x)
 {
     send_data p(x);
 
     sends_list.insert( make_pair(label, p));
+}
 
+void OSC_pb::OSCmap_send(string label, int* x)
+{
+    send_data p(x);
+
+    sends_list.insert( make_pair(label, p));
 }
 
 void OSC_pb::call_ofMap(const string& keyString, float valor)
@@ -20,13 +26,11 @@ void OSC_pb::call_ofMap(const string& keyString, float valor)
 	map_receive::const_iterator aux = receives_list.find(keyString);
 	if (aux != receives_list.end())
 	{
-
         receive_data p = aux->second;
 
         *(p.x) = ofMap(valor,p.minX,p.maxX,p.minY,p.maxY);
     }
 }
-
 
 void OSC_pb::setup(string ip, int send_port,int receive_port){
 
@@ -51,11 +55,9 @@ void OSC_pb::test(const void * sender,ofEventArgs & args){
 void OSC_pb::update(ofEventArgs & args){
 
     //manda
-
     for(const auto& element : sends_list){
-        cout << element.first << endl;
+        cout << *(element.second.x) << endl;
     }
-
 
     //recibe
 	while (oscreceiver.hasWaitingMessages()) {
@@ -68,10 +70,8 @@ void OSC_pb::update(ofEventArgs & args){
                 call_ofMap(m.getAddress(),m.getArgAsInt32(0) );
         if(m.getArgType(0) == OFXOSC_TYPE_FLOAT)
                 call_ofMap(m.getAddress(),m.getArgAsFloat(0) );
-
 	}
 }
-
 
 void OSC_pb::send(string label,string s){
     ofxOscMessage m;
@@ -79,17 +79,17 @@ void OSC_pb::send(string label,string s){
     m.addStringArg(s);
     oscsender.sendMessage(m);
 }
+
 void OSC_pb::send(string label,int i){
-ofxOscMessage m;
+    ofxOscMessage m;
     m.setAddress(label);
     m.addIntArg(i);
     oscsender.sendMessage(m);
 }
-void OSC_pb::send(string label, float f){
 
+void OSC_pb::send(string label, float f){
     ofxOscMessage m;
     m.setAddress(label);
     m.addFloatArg(f);
     oscsender.sendMessage(m);
-
 }

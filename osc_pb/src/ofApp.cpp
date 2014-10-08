@@ -8,7 +8,7 @@ void ofApp::setup(){
     pb.setup("127.0.0.1",12346,12345);
     pb.OSCmap_receive("/pos/x",&(p.x),0,100,0,ofGetWidth());
     pb.OSCmap_receive("/pos/y",&(p.y),0,100,0,ofGetHeight());
-
+    pb.OSCmap_send("/mousepos/x",&mouseX);
 }
 
 //--------------------------------------------------------------
