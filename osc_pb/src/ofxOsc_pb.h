@@ -36,6 +36,7 @@
             public:
                 send_data(float* _fx)
                 {
+                    typex = "float";
                     fx = _fx;
                     fx_old = *_fx;
                 }
@@ -43,9 +44,12 @@
 
                 send_data(int* _ix)
                 {
+                    typex = "int";
                     ix = _ix;
                     ix_old = *_ix;
                 }
+
+                string typex;
 
                 float* fx;
                 float fx_old;
@@ -72,9 +76,9 @@
 
             OSC_pb(){};
 
-            void OSCmap_receive(string label, float* x, float minX, float maxX, float minY, float maxY);
-            void OSCmap_send(string label, float* x);
-            void OSCmap_send(string label, int* x);
+            void OSCreceive_map(string label, float* x, float minX, float maxX, float minY, float maxY);
+            void OSCsend_map(string label, float* x);
+            void OSCsend_map(string label, int* x);
 
             void setup(string ip, int send_port,int receive_port);
 

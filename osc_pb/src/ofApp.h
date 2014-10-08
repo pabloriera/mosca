@@ -21,4 +21,5 @@ class ofApp : public ofBaseApp{
 
 		ofVec2f p;
         OSC_pb pb;
+        int mX;
 };
