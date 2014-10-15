@@ -22,10 +22,4 @@ class ofApp : public ofBaseApp{
 		ofVec2f p;
         OSC_pb pb;
         int mX;
-
-        ofEvent<int> keyPressedEvent;
-
-        void cambiarColorFondo(int & arg);
-
-        ofColor bg;
 };
