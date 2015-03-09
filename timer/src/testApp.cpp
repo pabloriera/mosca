@@ -5,22 +5,26 @@
 void testApp::setup(){
 
 
-
-
     gui.setup(); // most of the time you don't need a name
-	gui.add(interval.setup( "interval", 1, 1, 1000000 ));
+	gui.add(interval.setup( "interval (us)", 1, 1, 1000000 ));
+    gui.add(freq.setup( "frecuencia", 1, 0.01, 80 ));
 
-    ofSetFrameRate(10);
-    sender.setup(HOST, PORT);
-
+    ofSetFrameRate(200);
 
     timer = new chronoTimer<testApp>(*this,&testApp::doit);
     timer->startThread(true, false);
 
     interval.addListener(this,&testApp::setInterval);
+    freq.addListener(this,&testApp::setFreq);
 
     c=0;
 
+}
+
+void testApp::setFreq(float &freq)
+{
+    int aux = (int)1e6/freq;
+    timer->setInterval(aux);
 }
 
 void testApp::setInterval(int &interval)
@@ -31,7 +35,7 @@ void testApp::setInterval(int &interval)
 void testApp::doit(){
 
     c++;
-    cout << c << endl;
+    bang = true;
 
 }
 
@@ -55,6 +59,13 @@ void testApp::draw(){
     str += ofToString(c);
 
     ofDrawBitmapString(str, 50, 100);
+
+        if(bang)
+        {
+            ofSetColor(255,255,255);
+            ofCircle(ofGetWidth()/2,ofGetHeight()/2,50);
+            bang = false;
+        }
 
 
 }

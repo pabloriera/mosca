@@ -32,14 +32,17 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
         void setInterval(int & interval  );
+        void setFreq(float &freq);
 		void doit();
 
+        bool bang;
 
         chronoTimer<testApp> *timer;
 
         ofxOscSender sender;
 
         ofxIntSlider interval;
+        ofxFloatSlider freq;
 
         ofxPanel gui;
         int c;
