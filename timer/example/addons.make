@@ -1,4 +1,0 @@
-ofxGui
-ofxOsc
-ofxControlFloat
-ofxTimerThread
