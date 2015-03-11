@@ -14,6 +14,8 @@ void ofApp::setup(){
     pb.OSCreceive_event("/event",&eventReceived);
     ofAddListener(eventReceived, this, &ofApp::cambiarColor);
 
+
+
 }
 
 void ofApp::cambiarColor(int & arg){

@@ -27,10 +27,18 @@ void ofxOsc_pb::OSCsend_map(string label, int* x)
     d_sends_map.insert( make_pair(label, p));
 }
 
-void ofxOsc_pb::OSCsend_event(string label,ofEvent<int> *event)
-{
+//void ofxOsc_pb::OSCsend_event(string label,ofEvent<int> *event)
+//{
+//    ofAddListener(*event, this, &ofxOsc_pb::send_events);
+//
+//}
+//void ofxOsc_pb::send_events(ofEventArgs & args)
+//{
+//
+//
+//
+//}
 
-}
 
 void ofxOsc_pb::setup(string ip, int send_port,int receive_port){
 

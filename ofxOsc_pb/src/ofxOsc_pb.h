@@ -72,12 +72,9 @@ class ofxOsc_pb
     typedef map<string, receive_t> dict_receive_t;
     typedef map<string, send_map_t> dict_send_map_t;
 
-    //template<typename U> struct A {};
-    //typedef map<string, send_data<U,A<U>> map_send;
 
     dict_receive_t d_receives;
     dict_send_map_t d_sends_map;
-
 
     ofxOscReceiver oscreceiver;
     ofxOscSender oscsender;
