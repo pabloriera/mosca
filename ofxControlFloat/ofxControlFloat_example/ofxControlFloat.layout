@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="src/main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="src/testApp.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="124" topLine="0" />
+	</File>
+	<File name="src/testApp.h" open="1" top="0" tabpos="3">
+		<Cursor position="13" topLine="0" />
+	</File>
+	<File name="../src/ofxControlFloat.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="427" topLine="16" />
+	</File>
+	<File name="../src/ofxControlFloat.h" open="1" top="0" tabpos="5">
+		<Cursor position="403" topLine="9" />
+	</File>
+</CodeBlocks_layout_file>
