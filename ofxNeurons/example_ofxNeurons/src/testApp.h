@@ -21,5 +21,8 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		Neurons_network nn;
+		vector<ofVec2f> event_vector;
+
+		float event_vis_height, event_vis_width, event_vel, event_pos ;
 
 };

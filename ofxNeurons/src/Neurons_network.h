@@ -20,6 +20,8 @@ public:
     void add_synapse(size_t source_id,size_t target_id );
     void remove_synapse(size_t id);
 
+    void add_all_synapses();
+
     void reset();
     void draw();
 

@@ -15,21 +15,11 @@ public:
     bool update();
 
     void drawCircle();
-    void drawEvent();
 
     void FRset(float Fc,float Q);
     void FRcalc();
 
     size_t id;
-
-    //Visualization
-    ofColor color;
-
-    ofVec2f visEvent_pos;
-    ofVec2f visCircle_pos;
-
-    float visEvent_width;
-    float visEvent_height;
 
     //Izhikevich
     float a,b,c,d;
@@ -53,7 +43,7 @@ public:
 
     float maxV,minV;
     float dc;
-    ofxControlFloat I;
+    float I;
     float Ibuf;
 
     struct s_fr{
@@ -73,18 +63,10 @@ public:
 
     float FR;
 
-    //Circle visualization
-    float vis_circle_radio;
-    float vis_circle_radio0;
+//    //Circle visualization
+//    float vis_circle_radio;
+//    float vis_circle_radio0;
 
-    //Event visualization
-    float event_pos;
-    float event_vel;
-    float event_vis_width;
-    float event_vis_height;
     bool event;
-    bool event_draw;
-
-    vector<float> event_vector;
 
 };

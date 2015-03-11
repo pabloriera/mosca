@@ -47,6 +47,18 @@ void Neurons_network::remove_synapse(size_t id)
     }
 }
 
+void Neurons_network::add_all_synapses()
+{
+    for(size_t i = 0 ; i < neurons.size();i++)
+    {
+        for(size_t j = 0 ; j < neurons.size();j++)
+        {
+            if (i!=j)
+                add_synapse(i,j);
+        }
+    }
+}
+
 void Neurons_network::add_synapse(size_t source_id,size_t target_id )
 {
 
@@ -109,11 +121,7 @@ Synapse* Neurons_network::synapseId(size_t id)
 
 void Neurons_network::draw()
 {
-    for(size_t i = 0; i < neurons.size(); i++)
-    {
-        neurons[i]->drawEvent();
 
-    }
 }
 
 void Neurons_network::set_currents(float dc_mean, float dc_std)
@@ -130,42 +138,25 @@ void Neurons_network::set_dts(float dt)
 
 void Neurons_network::set_syn_w_matrix(float type_prop, float syn_w_mean, float syn_w_std)
 {
-    for(size_t i = 0; i < neurons.size(); i++)
+    for(size_t i = 0; i < synapses.size(); i++)
     {
-        neurons[i]->syn_type = (i < type_prop*neurons.size())*2-1;
+        synapses[i]->from->syn_type = (i < type_prop*neurons.size())*2-1;
 
-        ofColor aux_color;
-        aux_color.setHsb((-neurons[i]->syn_type+1)/2 * 50.0,(-neurons[i]->syn_type+1)/2 * 127.0,(neurons[i]->syn_type+1)/2 * 50.0 + 127.0 );
-
-
-        neurons[i]->color = aux_color;
-
-        for(size_t j = 0; j < neurons.size(); j++)
-        {
-            if (i!=j)
-            {
-                float aux = syn_w_mean + syn_w_std*random_normal();
-                aux = MAX(aux,0);
-                synapses[i][j].weight = aux;
-                }
-        }
+        float aux = MAX(syn_w_mean + syn_w_std*random_normal(),0);
+        synapses[i]->weight = aux;
     }
 }
 
 void Neurons_network::set_syn_d_matrix(float syn_d_mean, float syn_d_std)
 {
-    for(size_t i = 0; i < neurons.size(); i++)
+
+    for(size_t i = 0; i < synapses.size(); i++)
     {
-        for(size_t j = 0; j < neurons.size(); j++)
-        {
-            if (i!=j)
-            {
-                float aux = syn_d_mean + syn_d_std*random_normal();
-                aux = floor( CLAMP(aux,0,neurons[j]->sp_bufferSize) );
-                synapses[i][j].delay = aux;
-            }
-        }
+        float aux = syn_d_mean + syn_d_std*random_normal();
+        aux = floor( CLAMP(aux,0,synapses[i]->to->sp_bufferSize) );
+        synapses[i]->delay = aux;
     }
+
 }
 
 

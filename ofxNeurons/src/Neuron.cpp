@@ -12,18 +12,9 @@ void Neuron::setup(size_t _id){
     sp_buff_ptr = 0;
 
     event = false;
-    event_vel = 1;
-
-    event_vis_height = 30;
-    event_vis_width = 5;
-    visEvent_pos = ofVec2f(50,_id*event_vis_height*1.2);
-    visEvent_width = ofGetWidth()*0.8;
-    color = ofColor(255,255,255);
-//    visEvent_height = 30;
-//    visEvent_pos = 10;
 
     dt = 0.01;
-    I.alpha = dt;
+//    I.alpha = dt;
 
     dc = 0;
     syn_type = 1;
@@ -60,7 +51,6 @@ void Neuron::reset()
 
     fr.v.assign(4, 0.0);
 
-    event_vector.clear();
     sp_buff.assign(sp_bufferSize,0);
 
 }
@@ -83,7 +73,6 @@ bool Neuron::update(){
     if (V > maxV)
     {
         event = true;
-        event_draw = true;
         V = c;
         u = u + d;
         s0 = syn_type;
@@ -167,45 +156,13 @@ void Neuron::FRcalc(){
     //cout << in <<  ",  "<< out << "\n";
 
 }
-
-void Neuron::drawCircle(){
-
-    ofFill();
-    ofSetColor(color, 255*ofNormalize(V,-100,30) );
-    vis_circle_radio = 0.95f * vis_circle_radio + ofMap(V,-65,30,0,visEvent_height/2.0f) * 0.05f;
-    //cout << tamanio << "\n";
-    ofCircle(visCircle_pos.x, visCircle_pos.y, vis_circle_radio+vis_circle_radio0);
-    //ofCircle(vis_pos.x, vis_pos.y, 10);
-}
-
-void Neuron::drawEvent(){
-
-    ofFill();
-    ofSetColor(color);
-
-    event_pos += event_vel;
-
-    if(event_pos>visEvent_width){
-        event_pos = 0;
-        event_vector.clear();
-        //cout << "clearMaxvis_pos" << "\n";
-    }
-
-    if(event_draw){
-
-     //   cout << xvis_pos + vis_pos.x << "\n";
-
-        event_vector.push_back (event_pos + visEvent_pos.x);
-       // cout << "hola" <<"\n";
-        //cout << "size, " << event_vector.size() << "\n";
-
-    }
-
-
-    for(size_t i=0; i< event_vector.size(); i++){
-        ofRect(event_vector[i], visEvent_pos.y, event_vis_width , event_vis_height);
-    }
-
-    event_draw = false;
-    //ofCircle(vis_pos.x, vis_pos.y, 10);
-}
+//
+//void Neuron::drawCircle(){
+//
+//    ofFill();
+//    ofSetColor(color, 255*ofNormalize(V,-100,30) );
+//    vis_circle_radio = 0.95f * vis_circle_radio + ofMap(V,-65,30,0,visEvent_height/2.0f) * 0.05f;
+//    //cout << tamanio << "\n";
+//    ofCircle(visCircle_pos.x, visCircle_pos.y, vis_circle_radio+vis_circle_radio0);
+//    //ofCircle(vis_pos.x, vis_pos.y, 10);
+//}
