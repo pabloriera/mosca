@@ -12,27 +12,40 @@ class ofxOsc_pb
 {
     private:
 
-    class receive_data
+    class receive_t
     {
         public:
-        receive_data(float* _x, float _minX, float _maxX, float _minY, float _maxY)
+        receive_t(float* _y, float _minX, float _maxX, float _minY, float _maxY) { y = _y;  minX = _minX;  maxX = _maxX; minY = _minY;  maxY = _maxY; type="map"; }
+        receive_t(ofEvent<int> *event_) { event = event_; type = "event"; }
+
+        float* y;
+        float minX, maxX, minY, maxY;
+        ofEvent<int> *event;
+        string type;
+
+        void action()
         {
-            x = _x;
-            minX = _minX;
-            maxX = _maxX;
-            minY = _minY;
-            maxY = _maxY;
+            if(type == "event")
+            {
+                int aux=0;
+                ofNotifyEvent(*event,aux);
+            }
+
+        }
+        void action(float x)
+        {
+            if(type == "map")
+                *y = ofMap(x, minX, maxX,minY, maxY);
         }
 
-        float* x;
-        float minX, maxX, minY, maxY;
+
     };
 
     //template<typename U>
-    class send_data
+    class send_map_t
     {
         public:
-            send_data(float* _fx)
+            send_map_t(float* _fx)
             {
                 typex = "float";
                 fx = _fx;
@@ -40,7 +53,7 @@ class ofxOsc_pb
             }
 
 
-            send_data(int* _ix)
+            send_map_t(int* _ix)
             {
                 typex = "int";
                 ix = _ix;
@@ -56,14 +69,15 @@ class ofxOsc_pb
 
     };
 
-    typedef map<string, receive_data> map_receive;
-    typedef map<string, send_data> map_send;
+    typedef map<string, receive_t> dict_receive_t;
+    typedef map<string, send_map_t> dict_send_map_t;
 
     //template<typename U> struct A {};
     //typedef map<string, send_data<U,A<U>> map_send;
 
-    map_receive receives_list;
-    map_send sends_list;
+    dict_receive_t d_receives;
+    dict_send_map_t d_sends_map;
+
 
     ofxOscReceiver oscreceiver;
     ofxOscSender oscsender;
@@ -77,6 +91,8 @@ class ofxOsc_pb
         void OSCreceive_map(string label, float* x, float minX, float maxX, float minY, float maxY);
         void OSCsend_map(string label, float* x);
         void OSCsend_map(string label, int* x);
+
+        void OSCreceive_event(string label,ofEvent<int> *event);
 
         void setup(string ip, int send_port,int receive_port);
 

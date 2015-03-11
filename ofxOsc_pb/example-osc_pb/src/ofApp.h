@@ -20,12 +20,12 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		ofVec2f p;
-        OSC_pb pb;
+        ofxOsc_pb pb;
         int mX;
 
-        ofEvent<int> keyPressedEvent;
+        ofEvent<int> eventReceived;
 
-        void cambiarColorFondo(int & arg);
+        void cambiarColor(int & arg);
 
         ofColor bg;
 };
