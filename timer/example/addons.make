@@ -1,3 +1,4 @@
 ofxGui
 ofxOsc
 ofxControlFloat
+ofxTimerThread
