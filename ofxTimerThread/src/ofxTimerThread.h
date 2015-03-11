@@ -1,9 +1,12 @@
-#ifndef _THREADED_OBJECT
-#define _THREADED_OBJECT
+#pragma once
 
 #include "ofMain.h"
 #include <chrono>
 #include <thread>
+
+//usage
+//ofxTimerThread<testApp> *timer;
+//timer = new ofxTimerThread<testApp>(*this,&testApp::doit);
 
 template <class T>
 class ofxTimerThread : public ofThread{
@@ -69,5 +72,3 @@ class ofxTimerThread : public ofThread{
         fn m_Operation;
 
 };
-
-#endif
