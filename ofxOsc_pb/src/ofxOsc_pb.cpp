@@ -1,27 +1,27 @@
 #include "ofxOsc_pb.h"
 
-void OSC_pb::OSCreceive_map(string label, float* x, float minX, float maxX, float minY, float maxY)
+void ofxOsc_pb::OSCreceive_map(string label, float* x, float minX, float maxX, float minY, float maxY)
 {
     receive_data p(x, minX, maxX, minY, maxY);
 
     receives_list.insert( make_pair(label, p));
 }
 
-void OSC_pb::OSCsend_map(string label, float* x)
+void ofxOsc_pb::OSCsend_map(string label, float* x)
 {
     send_data p(x);
 
     sends_list.insert( make_pair(label, p));
 }
 
-void OSC_pb::OSCsend_map(string label, int* x)
+void ofxOsc_pb::OSCsend_map(string label, int* x)
 {
     send_data p(x);
 
     sends_list.insert( make_pair(label, p));
 }
 
-void OSC_pb::call_ofMap(const string& keyString, float valor)
+void ofxOsc_pb::call_ofMap(const string& keyString, float valor)
 {
 	map_receive::const_iterator aux = receives_list.find(keyString);
 	if (aux != receives_list.end())
@@ -32,27 +32,27 @@ void OSC_pb::call_ofMap(const string& keyString, float valor)
     }
 }
 
-void OSC_pb::setup(string ip, int send_port,int receive_port){
+void ofxOsc_pb::setup(string ip, int send_port,int receive_port){
 
     oscreceiver.setup(receive_port);
     oscsender.setup(ip,send_port);
 
-    ofAddListener(ofEvents().update, this, &OSC_pb::update);
+    ofAddListener(ofEvents().update, this, &ofxOsc_pb::update);
 
     ///Prueba eventos y mensajes
-    ofAddListener(newEvent, this, &OSC_pb::test );
+    ofAddListener(newEvent, this, &ofxOsc_pb::test );
 
 }
 
 ///Prueba eventos y mensajes
-void OSC_pb::test(const void * sender, ofEventArgs & args){
+void ofxOsc_pb::test(const void * sender, ofEventArgs & args){
 
    // cout << sender << endl;
    // cout << "hola" << endl;
 }
 ///
 
-void OSC_pb::update(ofEventArgs & args){
+void ofxOsc_pb::update(ofEventArgs & args){
 
     //manda
     for(auto& element : sends_list){
@@ -98,21 +98,21 @@ void OSC_pb::update(ofEventArgs & args){
 	}
 }
 
-void OSC_pb::send(string label, string s){
+void ofxOsc_pb::send(string label, string s){
     ofxOscMessage m;
     m.setAddress(label);
     m.addStringArg(s);
     oscsender.sendMessage(m);
 }
 
-void OSC_pb::send(string label, int i){
+void ofxOsc_pb::send(string label, int i){
     ofxOscMessage m;
     m.setAddress(label);
     m.addIntArg(i);
     oscsender.sendMessage(m);
 }
 
-void OSC_pb::send(string label, float f){
+void ofxOsc_pb::send(string label, float f){
     ofxOscMessage m;
     m.setAddress(label);
     m.addFloatArg(f);
