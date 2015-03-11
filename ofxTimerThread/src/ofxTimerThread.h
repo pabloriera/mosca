@@ -4,43 +4,15 @@
 #include "ofMain.h"
 #include <chrono>
 #include <thread>
-#include "testApp.h"
-//
-//template <class T>
-//class CCallback
-//{
-//public:
-//    typedef void (T::*fn)( int anArg );
-//
-//    CCallback(T& trg, fn op)
-//        : m_rTarget(trg)
-//        , m_Operation(op)
-//    {
-//    }
-//
-//    void Execute( int in )
-//    {
-//        (m_rTarget.*m_Operation)( in );
-//    }
-//
-//private:
-//
-//    CCallback();
-//    CCallback( const CCallback& );
-//
-//    T& m_rTarget;
-//    fn m_Operation;
-//
-//};
 
 template <class T>
-class chronoTimer : public ofThread{
+class ofxTimerThread : public ofThread{
 
 
 	public:
 	    typedef void (T::*fn)( );
 
-        chronoTimer(T& trg, fn op)
+        ofxTimerThread(T& trg, fn op)
             : m_rTarget(trg)
             , m_Operation(op)
             { interval = Interval(1);  }
