@@ -1,2 +1,0 @@
-ofxNeurons
-ofxControlFloat
