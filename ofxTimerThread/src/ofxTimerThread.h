@@ -37,7 +37,7 @@ class ofxTimerThread : public ofThread{
             stopThread();
         }
 
-        void setInterval(long int interval_)
+        void set_interval(long int interval_)
         {
 //            if(isThreadRunning() == 0)
                 interval = Interval(interval_);

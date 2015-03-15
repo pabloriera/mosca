@@ -51,3 +51,17 @@ ofxControlFloat& ofxControlFloat::operator= (const int& param)
     target = param;
     return *this;
 }
+
+
+//ofxControlFloatSlider::ofxControlFloatSlider()
+//{
+//    value.set(0);
+//
+//    ofAddListener(ofEvents().update,this, &ofxControlFloatSlider::update);
+//
+//}
+//ofxControlFloatSlider::update()
+//{
+//
+//
+//}

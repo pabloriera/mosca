@@ -1,16 +1,7 @@
-//#include "ofxControlFloatClass.h"
-//using namespace std;
-//vector <ofxControlFloat*> CFvector;
-
-#ifndef OFXCONTROLFLOAT
-    #define OFXCONTROLFLOAT
+#pragma once
 
 #include "ofMain.h"
-#include <iostream>
-#include <vector>
-
-
-using namespace std;
+#include "ofxGui.h"
 
 class ofxControlFloat
 {
@@ -31,6 +22,17 @@ class ofxControlFloat
         float value;
         float alpha;
 };
-#endif
 
+//class ofxControlFloatSlider:
+//{
+//    public:
+//
+//        ofxControlFloatSlider();
+//
+//        void update(ofEventArgs & args);
+//
+//        ofxFloatSlider slider;
+//        ofxControlFloat value;
+//
+//};
 
