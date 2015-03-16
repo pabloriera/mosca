@@ -4,149 +4,70 @@ Neurons_network::Neurons_network(){
 
 }
 
-void Neurons_network::setup()
+void Neurons_network::setup(Graph& G_)
 {
 
+    G = &G_;
     bool_syn_matrix = true;
-    neuron_id = 0;
-    synapse_id = 0;
-}
 
-void Neurons_network::add_neuron(size_t num)
-{
-    for (size_t i=1;i<=num;i++)
+    for(vector<Node>::iterator it = G->nodes.begin(); it != G->nodes.end(); ++it)
     {
-        Neuron* neuron = new Neuron;
-        neuron->setup(neuron_id);
-        neuron_id++;
-
-        neurons.push_back(neuron);
+        neurons[*it].setup();
     }
-
-}
-
-void Neurons_network::remove_neuron(size_t id)
-{
-    for(size_t i = 0 ; i < neurons.size();i++)
-        if (neurons[i]->id==id)
-            {
-                neurons[i]=neurons.back();
-                neurons.pop_back();
-            }
-}
-
-void Neurons_network::remove_synapse(size_t id)
-{
-    for(size_t i=0; i<synapses.size(); i++)
-    {
-        if(synapses[i]->id == id)
-        {
-            synapses[i] = synapses.back();
-            synapses.pop_back();
-        }
-    }
-}
-
-void Neurons_network::add_all_synapses()
-{
-    for(size_t i = 0 ; i < neurons.size();i++)
-    {
-        for(size_t j = 0 ; j < neurons.size();j++)
-        {
-            if (i!=j)
-                add_synapse(i,j);
-        }
-    }
-}
-
-void Neurons_network::add_synapse(size_t source_id,size_t target_id )
-{
-
-    Synapse* synapse = new Synapse;
-
-    synapse->from = neuronId(source_id);
-    synapse->to = neuronId(target_id);
-
-    synapse->id = synapse_id;
-    synapses.push_back(synapse);
-
-    neuronId(source_id)->synapses.push_back(synapse);
-
-    synapse_id++;
 
 }
 
 void Neurons_network::update()
 {
-    for(size_t i = 0; i < neurons.size(); i++)
-        neurons[i]->update();
+    for(vector<Node>::iterator it = G->nodes.begin(); it != G->nodes.end(); ++it)
+    {
+        neurons[*it].update();
+    }
 
     if (bool_syn_matrix)
-        for(size_t i = 0; i < synapses.size(); i++)
-            synapses[i]->to->currentBuffer( synapses[i]->weight, synapses[i]->delay, synapses[i]->from );
-}
-
-Neuron* Neurons_network::neuronId(size_t id)
-{
-    for(size_t i = 0; i < neurons.size(); i++)
-    {
-        if(id==neurons[i]->id)
-            return neurons[i];
-    }
-    return NULL;
-}
-
-Synapse* Neurons_network::synapseId(size_t id)
-{
-
-    for(size_t i = 0; i < synapses.size(); i++)
-    {
-        if(id==synapses[i]->id)
-            return synapses[i];
-    }
-    return NULL;
-}
-
-void Neurons_network::draw()
-{
-
+        for(vector<Link>::iterator it = G->links.begin(); it != G->links.end(); ++it)
+        {
+            synapses[*it].to->currentBuffer( synapses[*it].weight, synapses[*it].delay, &neurons[*( (*it).from) ] );
+        }
 }
 
 void Neurons_network::set_currents(float dc_mean, float dc_std)
 {
-    for(size_t i = 0; i < neurons.size(); i++)
-        neurons[i]->dc = dc_mean + dc_std*random_normal();
+    for(vector<Node>::iterator it = G->nodes.begin(); it != G->nodes.end(); ++it)
+        neurons[*it].dc = dc_mean + dc_std*random_normal();
 }
 
 void Neurons_network::set_dts(float dt)
 {
-    for(size_t i = 0; i < neurons.size(); i++)
-        neurons[i]->dt = dt;
+    for(vector<Node>::iterator it = G->nodes.begin(); it != G->nodes.end(); ++it)
+        neurons[*it].dt = dt;
 }
 
 void Neurons_network::set_syn_w_matrix(float type_prop, float syn_w_mean, float syn_w_std)
 {
-    for(size_t i = 0; i < synapses.size(); i++)
+    size_t i = 0;
+    for(vector<Link>::iterator it = G->links.begin(); it != G->links.end(); ++it)
     {
-        synapses[i]->from->syn_type = (i < type_prop*neurons.size())*2-1;
+        neurons[*( (*it).from) ].syn_type = (i < type_prop*G->nodes.size())*2-1;
 
         float aux = MAX(syn_w_mean + syn_w_std*random_normal(),0);
-        synapses[i]->weight = aux;
+        synapses[*it].weight = aux;
+
+        i++;
     }
 }
 
 void Neurons_network::set_syn_d_matrix(float syn_d_mean, float syn_d_std)
 {
 
-    for(size_t i = 0; i < synapses.size(); i++)
+    for(vector<Link>::iterator it = G->links.begin(); it != G->links.end(); ++it)
     {
         float aux = syn_d_mean + syn_d_std*random_normal();
-        aux = floor( CLAMP(aux,0,synapses[i]->to->sp_bufferSize) );
-        synapses[i]->delay = aux;
+        aux = floor( CLAMP(aux,0, neurons[*( (*it).to) ].sp_bufferSize  ) );
+        synapses[*it].delay = aux;
     }
 
 }
-
 
 void Neurons_network::togg_syn_matrix()
 {
@@ -155,11 +76,10 @@ void Neurons_network::togg_syn_matrix()
 
 void Neurons_network::reset()
 {
-    for(size_t i = 0; i < neurons.size(); i++){
-        neurons[i]->reset();
-    }
-}
+    for(vector<Node>::iterator it = G->nodes.begin(); it != G->nodes.end(); ++it)
+        neurons[*it].reset();
 
+}
 
 
 float drand()   /* uniform distribution, (0..1] */

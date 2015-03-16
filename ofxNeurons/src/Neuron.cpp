@@ -2,13 +2,12 @@
 
 Neuron::Neuron(){
 
-
+    setup();
 
 }
 
-void Neuron::setup(size_t _id){
+void Neuron::setup(){
 
-    id = _id;
     sp_bufferSize = 1024;
     sp_buff.assign(sp_bufferSize,0.0);
     sp_buff_ptr = 0;

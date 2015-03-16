@@ -13,7 +13,7 @@ public:
     void currentBuffer(float w, float d, Neuron* _neurona);
     void reset();
 
-    void setup(size_t id);
+    void setup();
     bool update();
 
 
